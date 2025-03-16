@@ -32,17 +32,15 @@ class _LoginState extends State<Login> {
   String? _validatePassword(String value) {
     if (value.isEmpty) {
       return 'La contraseña es obligatoria';
-    } else if (value.length < 8) {
-      return 'Debe tener al menos 8 caracteres';
-    } else if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)').hasMatch(value)) {
-      return 'Debe incluir al menos una letra y un número';
-    }
+    } else if (value.length < 5) {
+      return 'Debe tener al menos 4 caracteres';
+    } 
     return null;
   }
 
   void login(BuildContext context) {
     if (!_formKey.currentState!.validate()) {
-      return; // Detiene el login si hay errores en el formulario
+      return; 
     }
 
     AuthenticationUsecaseImpl _auth = AuthenticationUsecaseImpl();

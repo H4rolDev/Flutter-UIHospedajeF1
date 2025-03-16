@@ -17,11 +17,13 @@ class LoginResponse {
 
   static LoginResponse fromJson(Map<String, dynamic> json) {
     return LoginResponse(
-      token: json['token'],
-      id: json['id'].toString(),
-      email: json['email'],
-      roles: List<String>.from(json['roles']),
-      profile: UserProfile.fromJson(json['profile']),
+      token: json['token'] ?? '', 
+      id: json['id'].toString(),  
+      email: json['email'] ?? '',
+      roles: List<String>.from(json['roles'] ?? []),
+      profile: json['profile'] != null
+          ? UserProfile.fromJson(json['profile'])
+          : UserProfile(email: '', roles: []), 
     );
   }
 
