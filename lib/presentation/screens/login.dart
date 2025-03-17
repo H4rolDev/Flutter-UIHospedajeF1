@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
     if (value.isEmpty) {
       return 'La contraseña es obligatoria';
     } else if (value.length < 5) {
-      return 'Debe tener al menos 4 caracteres';
+      return 'Debe tener al menos 5 caracteres';
     } 
     return null;
   }

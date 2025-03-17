@@ -62,6 +62,7 @@ class Home extends StatelessWidget {
                 
               ),
             ),
+            SizedBox(height: 20,),
             ElevatedButton(
               onPressed:(){ Navigator.pushNamed(context, AppRoutes.habitaciones);
               },

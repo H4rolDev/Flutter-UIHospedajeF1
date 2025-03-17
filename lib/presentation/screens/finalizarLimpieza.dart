@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class FinalizarLimpieza extends StatelessWidget {
   final String horaInicio;
@@ -23,33 +22,49 @@ class FinalizarLimpieza extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.redAccent,
-                child: Icon(Icons.cleaning_services, size: 50, color: Colors.white),
+                radius: 60,
+                backgroundColor: Colors.redAccent.shade700,
+                child: const Icon(
+                  Icons.cleaning_services,
+                  size: 60,
+                  color: Colors.white,
+                ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               const Text(
                 "Finalizó la limpieza de la habitación correctamente.",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 20),
               _detalleHora("Inicio", horaInicio),
               _detalleHora("Finalización", horaFin),
               _detalleHora("Tiempo de limpieza", "$minutosTotales minutos"),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                  padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
-                ),
-                onPressed: () {
-                  Navigator.popUntil(context, (route) => route.isFirst); // Vuelve al inicio
-                },
-                child: const Text(
-                  "Volver al inicio",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+              const SizedBox(height: 40),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.redAccent.shade700,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  onPressed: () {
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                  },
+                  child: const Text(
+                    "Volver al inicio",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -65,8 +80,17 @@ class FinalizarLimpieza extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("$titulo ➜ ", style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          Text(valor, style: const TextStyle(fontSize: 16)),
+          Text(
+            "$titulo ➜ ",
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            valor,
+            style: const TextStyle(fontSize: 18),
+          ),
         ],
       ),
     );

@@ -39,6 +39,7 @@ class _HabitacionesState extends State<Habitaciones> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: widgetBar(),
+      backgroundColor: Colors.grey.shade200,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -47,16 +48,16 @@ class _HabitacionesState extends State<Habitaciones> {
             const SizedBox(height: 10),
             const Text(
               'Limpieza',
-              style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             const Text(
               '\ud83c\udfe8 Habitaciones que requieren limpieza',
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
-            buildHabitaciones(),
             const SizedBox(height: 20),
+            buildHabitaciones(),
+            const SizedBox(height: 25),
             buildLeyenda(),
             const Spacer(),
             ElevatedButton(
@@ -65,7 +66,7 @@ class _HabitacionesState extends State<Habitaciones> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 18),
               ),
               onPressed: _habitacionSeleccionada == null ? null : () {
                 Navigator.pushNamed(
@@ -76,10 +77,10 @@ class _HabitacionesState extends State<Habitaciones> {
               },
               child: const Text(
                 'Ir a la habitación',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
           ],
         ),
       ),
@@ -88,21 +89,24 @@ class _HabitacionesState extends State<Habitaciones> {
 
   Widget buildHabitaciones() {
     return Wrap(
-      spacing: 8.0,
-      runSpacing: 8.0,
+      spacing: 12.0,
+      runSpacing: 12.0,
       children: habitaciones.entries.map((entry) {
         return GestureDetector(
           onTap: () => selectHabitacion(entry.key),
           child: Container(
-            width: 50,
-            height: 50,
+            width: 55,
+            height: 55,
             decoration: BoxDecoration(
               color: entry.value,
-              border: Border.all(color: Colors.grey, width: 2),
-              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(color: Colors.black54, width: 2.5),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             alignment: Alignment.center,
-            child: Text(entry.key, style: const TextStyle(fontWeight: FontWeight.bold)),
+            child: Text(
+              entry.key,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
+            ),
           ),
         );
       }).toList(),
@@ -111,6 +115,7 @@ class _HabitacionesState extends State<Habitaciones> {
 
   Widget buildLeyenda() {
     Map<String, Color> leyenda = {
+      'Libre': Colors.white,
       'En limpieza': Colors.yellow,
       'Ocupado': Colors.blue,
       'Por limpiar': Colors.red,
@@ -127,15 +132,16 @@ class _HabitacionesState extends State<Habitaciones> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                width: 20,
-                height: 20,
+                width: 24,
+                height: 24,
                 decoration: BoxDecoration(
                   color: entry.value,
-                  border: Border.all(color: Colors.grey, width: 1),
+                  border: Border.all(color: Colors.black54, width: 2),
+                  borderRadius: BorderRadius.circular(4),
                 ),
               ),
               const SizedBox(width: 8),
-              Text(entry.key, style: const TextStyle(fontSize: 16)),
+              Text(entry.key, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             ],
           );
         }).toList(),

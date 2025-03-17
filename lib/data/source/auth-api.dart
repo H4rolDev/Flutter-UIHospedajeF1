@@ -12,9 +12,9 @@ class AuthApi {
 
   Future<LoginResponse> login(LoginRequest body) async {
   try {
-    print("Enviando solicitud a la API...");
-    print("URL: ${_dio.options.baseUrl}/signin");
-    print("Body: ${body.toJson()}");
+    print("📡 Enviando solicitud a la API...");
+    print("📌 URL: ${_dio.options.baseUrl}/signin");
+    print("📌 Body: ${body.toJson()}");
 
     Response response = await _dio.post(
       '/signin',
@@ -22,7 +22,7 @@ class AuthApi {
       options: Options(contentType: Headers.jsonContentType),
     );
 
-    print("Respuesta recibida: ${response.data}");
+    print("✅ Respuesta recibida: ${response.data}");
 
     if (response.data == null || response.data.isEmpty) {
       throw Exception("Error: La respuesta del servidor está vacía.");
@@ -38,9 +38,9 @@ class AuthApi {
       throw Exception("Error en el login: ${response.statusMessage}");
     }
   } on DioException catch (e) {
-    print("Error en la solicitud: $e");
+    print("❌ Error en la solicitud: $e");
     if (e.response != null) {
-      print("Error del servidor: ${e.response?.data}");
+      print("📌 Error del servidor: ${e.response?.data}");
       throw Exception("Error del servidor: ${e.response?.data}");
     } else {
       throw Exception("Error de conexión: ${e.message}");
