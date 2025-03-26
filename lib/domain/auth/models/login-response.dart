@@ -2,7 +2,7 @@ import 'package:flutter_hospedajef1/domain/auth/models/user-profile.dart';
 
 class LoginResponse {
   String token;
-  String id;
+  int id;  // Cambiar de String a int
   String email;
   List<String> roles;
   UserProfile profile;
@@ -18,7 +18,7 @@ class LoginResponse {
   static LoginResponse fromJson(Map<String, dynamic> json) {
     return LoginResponse(
       token: json['token'] ?? '', 
-      id: json['id'].toString(),  
+      id: int.tryParse(json['id'].toString()) ?? 0,  // Convertir id a int
       email: json['email'] ?? '',
       roles: List<String>.from(json['roles'] ?? []),
       profile: json['profile'] != null
@@ -28,12 +28,12 @@ class LoginResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['token'] = this.token;
-    data['id'] = this.id;
-    data['email'] = this.email;
-    data['roles'] = this.roles;
-    data['profile'] = this.profile.toJson();
-    return data;
+    return {
+      'token': token,
+      'id': id,  // Ya es un entero
+      'email': email,
+      'roles': roles,
+      'profile': profile.toJson(),
+    };
   }
 }

@@ -1,43 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hospedajef1/data/source/auth_provider.dart';
 import 'package:flutter_hospedajef1/core/colors.dart';
+import 'package:provider/provider.dart';
 
-class widgetBar extends StatelessWidget implements PreferredSizeWidget {
-  const widgetBar({super.key});
+class WidgetBar extends StatelessWidget implements PreferredSizeWidget {
+  const WidgetBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
+
+    String userName = authProvider.employeeData?['name'] ?? "Usuario";
+    String userRole = authProvider.employeeData?['role'] ?? "Sin rol";
+
     return AppBar(
       backgroundColor: AppColors.appBarAllScreens, 
-        toolbarHeight: 80,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.end, // Mueve los elementos a la derecha
-          children: [
-            Icon(Icons.notifications, color: Colors.black, size: 24), // Icono de campana
-            SizedBox(width: 8), // Espacio entre icono y texto
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Alinea los textos a la izquierda
-              children: [
-                Text(
-                  'Juanito Alimaña',
-                  style: TextStyle(
-                    color: Colors.black, // Color del texto
-                    fontWeight: FontWeight.bold, // Texto en negrita
-                    fontSize: 16, // Tamaño del texto
-                  ),
+      toolbarHeight: 80,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Icon(Icons.notifications, color: Colors.black, size: 24),
+          SizedBox(width: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                userName,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
                 ),
-                Text(
-                  'Limpieza',
-                  style: TextStyle(
-                    color: Colors.black, // Color del texto
-                    fontSize: 14, // Tamaño más pequeño para la segunda línea
-                  ),
+              ),
+              Text(
+                userRole,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
+
   @override
   Size get preferredSize => const Size.fromHeight(80);
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "359416259539",
+    "project_id": "hospedaje-f1",
+    "storage_bucket": "hospedaje-f1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359416259539:android:5fa125fbacf0a3004e0526",
+        "android_client_info": {
+          "package_name": "com.example.flutter_hospedajef1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3fkZppiWy880gYzVWvo3Hqok_t7guM6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

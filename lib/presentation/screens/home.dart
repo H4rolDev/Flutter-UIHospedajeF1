@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgAllScreens,
-      appBar: widgetBar(),
+      appBar: WidgetBar(),
       body: Center(
         child: Column(
           children: [

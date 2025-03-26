@@ -38,7 +38,7 @@ class _HabitacionesState extends State<Habitaciones> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widgetBar(),
+      appBar: WidgetBar(),
       backgroundColor: Colors.grey.shade200,
       body: Padding(
         padding: const EdgeInsets.all(16.0),

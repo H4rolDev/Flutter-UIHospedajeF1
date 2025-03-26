@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.INTERNET"/>
+<application
+    android:usesCleartextTraffic="true">
+</application>
     <application
         android:label="flutter_hospedajef1"
         android:name="${applicationName}"
@@ -42,4 +46,11 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+
+    <meta-data
+            android:name="firebase_messaging_auto_init_enabled" 
+            android:value="false" />
+    <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
 </manifest>

@@ -1,0 +1,2 @@
+C:/Users/HAROL/Documents/frontend-hospedajeF1/android/app/.cxx/RelWithDebInfo/3b3g04i1/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/HAROL/Documents/frontend-hospedajeF1/android/app/.cxx/RelWithDebInfo/3b3g04i1/x86_64/CMakeFiles/rebuild_cache.dir
